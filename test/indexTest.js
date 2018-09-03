@@ -159,6 +159,11 @@ describe('index.js', () => {
           expect(redHook.customers()).to.deep.equal([guy, marioBatali]);
         });
       });
+      describe('meals()', () => {
+        it('returns a unique list of meals that have been ordered in a particular neighborhood', () => {
+          expect(redHook.meals()).to.deep.equal([friedCheesecake, macAndCheese]);
+        });
+      });
     });
 
     describe('Delivery', () => {
@@ -195,6 +200,13 @@ describe('index.js', () => {
           expect(guy.meals()).to.deep.equal([friedCheesecake, macAndCheese, macAndCheese]);
         });
       });
+
+      describe('totalSpent()', () => {
+        it('returns the total amount that the customer has spent on food', () => {
+          expect(guy.totalSpent()).to.deep.equal(60);
+        });
+      });
+
     });
 
     describe('Meal', () => {
@@ -209,6 +221,11 @@ describe('index.js', () => {
       describe('customers()', () => {
         it('returns a unique list of customers who have ordered this meal', () => {
           expect(friedCheesecake.customers()).to.deep.equal([guy, marioBatali]);
+        });
+      });
+      describe('byPrice()', () => {
+        it('is a class method that orders all meal instances by their price in descending order', () => {
+          expect(Meal.byPrice()).to.deep.equal([friedCheesecake, macAndCheese]);
         });
       });
     });
